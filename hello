@@ -1,0 +1,77 @@
+
+###创建图和运行图
+#引入tensorflow包
+# import tensorflow as tf
+
+#创建一个常量v1，它是一个1行2列的矩阵
+# v1 = tf.constant([[2], [3]])
+
+#创建一个矩阵乘法，这里要注意的是，创建了乘法以后，是不会立即执行的，要在会话中执行
+#product = tf.matmul(v1, v2)
+
+#这个时候打印，得到的不是他们乘法之后的结果，而是得到乘法本身
+#print(product)
+
+#定义一个会话
+#sess = tf.Session()
+
+#运算乘法，得到结果
+#result = sess.run(product)
+
+#打印结果
+#print(result)
+
+#关闭会话
+#sess.close()
+
+
+###创建一个变量 并用for循环对变量进行赋值操作
+#创建一个变量num
+#num = tf.Variable(0, name = "count")
+
+#创建一个加法操作，把当前的数字+1
+#new_value = tf.add(num, 10)
+
+#创建一个赋值操作，把new_value赋值给num
+#op = tf.assign(num, new_value)
+
+#使用这种写法，在运行完成后，会话会自动关闭
+#with tf.Session() as sess:
+
+    #初始化变量
+    #sess.run(tf.global_variables_initializer())
+    #打印最初的num的值
+    #print(sess.run(num))
+    #创建一个for循环，每次给num+1，并打印出来
+    #for i in range(5):
+        #sess.run(op)
+        #print(sess.run(num))
+
+
+###通过feed设置placeholder的值
+#创建一个变量占位符input1
+#input1 = tf.placeholder(tf.float32)
+#创建一个变量占位符input2
+#input2 = tf.placeholder(tf.float32)
+
+#创建一个加法操作 把input1和input2相乘
+#new_value = tf.multiply(input1, input2)
+
+#使用这种写法，在运行完毕后，会话会自动关闭
+#with tf.Session() as sess:
+
+    #打印new_value的值 在运算时 用feed设置两个输入的值
+    #print(sess.run(new_value, feed_dict={input1:23.0, input2:11.0}))
+
+
+
+
+
+
+import tensorflow as tf
+
+hello = tf.constant('hello, tensorf')
+
+sess = tf.Session()
+
+print(sess.run(hello))
